@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Product } from "./types";
+import { Category, Product } from "./types";
 
 const api = axios.create({
   baseURL: "https://fakestoreapi.com",
@@ -21,4 +21,17 @@ export async function getProduct(id: string | number): Promise<Product | null> {
   } catch {
     return null;
   }
+}
+
+export async function getCategories(): Promise<Category[]> {
+  const res = await api.get<Category[]>("/products/categories");
+  return res.data;
+}
+
+export async function getProductsByCategory(slug: string): Promise<Product[]> {
+  const res = await api.get<Product[]>(
+    `/products/category/${encodeURIComponent(slug)}`,
+  );
+
+  return res.data;
 }
