@@ -1,5 +1,5 @@
 //halaman per id products
-
+import { AddToCartButton } from "@/components/AddToCartButton";
 import { getProduct } from "@/lib/api";
 import { formatPrice } from "@/lib/format";
 import Image from "next/image";
@@ -43,6 +43,7 @@ export default async function ProductDetailPage({
         </p>
         <p className="leading-relaxed text-zinc-700">{product.description}</p>
 
+        <AddToCartButton product={product} />
         <div>
           <Link href="/products">Kembali</Link>
         </div>
