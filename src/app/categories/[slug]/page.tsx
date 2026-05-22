@@ -9,9 +9,9 @@ export default async function CategoryDetailPage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-
-  const products = await getProductsByCategory(slug);
   const name = decodeURIComponent(slug);
+
+  const products = await getProductsByCategory(name);
 
   return (
     <div className="space-y-4">

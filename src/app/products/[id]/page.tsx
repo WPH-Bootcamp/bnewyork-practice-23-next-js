@@ -47,8 +47,6 @@ export default async function ProductDetailPage({
         <div>
           <Link href="/products">Kembali</Link>
         </div>
-
-        <div>{/* add button card */}</div>
       </div>
     </div>
   );
